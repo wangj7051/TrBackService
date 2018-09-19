@@ -35,14 +35,11 @@ public class ControlMediaBtnResp implements BackReceiver.BackReceiverListener {
     @Override
     public void onGotMediaKeyCode(KeyCodeEnum keyCodeEnum) {
         Log.i(TAG, "onGotMediaKeyCode(" + keyCodeEnum + ")");
-        switch (keyCodeEnum) {
-            case MEDIA:
-                openAudioSrcPage();
-                break;
-            case SOURCE:
-                openAudioSrcPage();
-                break;
-        }
+
+        //Switch
+        Intent i = new Intent(mContext, SwitchAudioSrcActivity.class);
+        i.putExtra("KEYCODE_ACTION", keyCodeEnum.getAction());
+        mContext.startActivity(i);
     }
 
     @Override
@@ -53,11 +50,6 @@ public class ControlMediaBtnResp implements BackReceiver.BackReceiverListener {
             case KeyEvent.ACTION_UP:
                 break;
         }
-    }
-
-    private void openAudioSrcPage() {
-        Intent i = new Intent(mContext, SwitchAudioSrcActivity.class);
-        mContext.startActivity(i);
     }
 
     private void unregister() {

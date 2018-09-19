@@ -3,4 +3,7 @@
     <string name="no_image">NO_IMAGE</string>
     <string name="radio_fm">FM</string>
     <string name="radio_am">AM</string>
+    <string name="toast_usb_not_exist">请注意，无可用USB设备，请检查&#8230;</string>
+    <string name="toast_bt_not_exist">请通过手机连接车机: QCOM_BTD</string>
+
 </resources>

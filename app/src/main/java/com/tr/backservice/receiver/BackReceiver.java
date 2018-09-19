@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import com.tr.backservice.MainActivity;
 import com.tr.backservice.engine.KeyCodeEnum;
+import com.tr.backservice.service.BackService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -53,8 +53,9 @@ public class BackReceiver extends BroadcastReceiver {
     }
 
     private void startBackService(Context context) {
-        Intent backServiceIntent = new Intent(context, MainActivity.class);
-        context.startActivity(backServiceIntent);
+        Intent backServiceIntent = new Intent(context, BackService.class);
+        backServiceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startService(backServiceIntent);
     }
 
     public static void register(BackReceiverListener l) {
